@@ -22,7 +22,7 @@ kubectl get all -n argocd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 
-t5N4SxvdO1nwMSu2
+
 ```
 6. Verify the Service (Loadbalancer)
 ```
@@ -41,7 +41,7 @@ argocd login localhost:8080
 ## Create ArgoCD `Application` 
 
 1. kubectl config get-contexts -o name
-2. argocd cluster add arn:aws:eks:ap-southeast-1:527378683069:cluster/scpay-drs
+2. argocd cluster add arn:aws:eks:ap-southeast-1:xxxx:cluster/scpay-drs
 3. kubectl apply -f ../argocd-foundations/application.yml
 4. kubectl get application -n argocd
 5. argocd app list

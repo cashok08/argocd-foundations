@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-1
+  name: guestbook-1
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/mabusaa/argocd-example-apps.git
-    targetRevision: master
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
     path: guestbook
   destination:
     server: https://kubernetes.default.svc
-    namespace: app-1
+    namespace: guestbook-1
   syncPolicy:
     syncOptions:
         - CreateNamespace=true
